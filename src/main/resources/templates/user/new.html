@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<h1>Create Hotel New User</h1>
+		<form th:action="@{/users/new}" method="post" th:object="${user}">
+			<div>
+				<label>First Name:</label>
+				<input th:field="*{fname}">
+			</div>
+			<div>
+				<label>Lastt Name:</label>
+				<input th:field="*{lname}">
+			</div>
+			<div>
+				<label>Phone:</label>
+				<input th:field="*{phone}" type="tel">
+			</div>
+			<div>
+				<label>Address:</label>
+				<input th:field="*{address}">
+			</div>
+			<div>
+				<label>City:</label>
+				<input th:field="*{city}">
+			</div>
+			<div>
+				<label>Country:</label>
+				<input th:field="*{country}">
+			</div>
+			<div>
+				<label>Email:</label>
+				<input th:field="*{email}" type="email">
+			</div>
+			<div>
+				<label>Password:</label>
+				<input th:field="*{password}" type="password">
+			</div>
+			<div>
+				<label>Confirm Password:</label>
+				<input name="pass" type="password">
+				<h6 th:text="${message}"></h6>
+			</div>
+			<div>
+				<label>Date of Birth:</label>
+				<input th:field="*{dob}" type="date">
+			</div>
+			
+			<button type="submit">Create User</button>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<h1>Create Hotel New Room</h1>
+		<form th:action="@{/rooms/new}" method="post" th:object="${room}">
+			<div>
+				<label>Name:</label>
+				<input th:field="*{name}">
+			</div>
+			<div>
+				<label>Price:</label>
+				<input th:field="*{price}">
+			</div>
+			<div>
+				<label>Room Length:</label>
+				<input th:field="*{roomLength}">
+			</div>	
+			<div>
+				<label>Room Width:</label>
+				<input th:field="*{roomWidth}">
+			</div>
+			<div>
+				<label>Matrass Size:</label>
+				<input th:field="*{matrassSize}">
+			</div>
+			<div>
+				<label>AC Capacity:</label>
+				<input th:field="*{acCapacity}">
+			</div>
+			<div>
+				<label>Number of Fans:</label>
+				<input th:field="*{fanNumber}">
+			</div>
+			<div>
+				<label>Seat number:</label>
+				<input th:field="*{numberSeaterCussionChair}">
+			</div>
+			<div>
+				<label>TV Size:</label>
+				<input th:field="*{tvSize}" type="number" min="15">
+			</div>
+			<div>
+				<label>bath:</label>
+				<input th:field="*{bath}">
+			</div>
+			<div>
+				<label>Heater:</label>
+				<select th:field="*{heaterAvailable}">
+					<option value="0">No Heater</option>
+					<option value="1">Heater Available</option>
+				</select>
+			</div>
+			<button type="submit">Create Room</button>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<h1>Create Hotel New Role</h1>
+		<form th:action="@{/roles/new}" method="post" th:object="${role}">
+			<div>
+				<input type="hidden" th:field="*{id}">
+			</div>
+			<div>
+				<label>Name:</label>
+				<input th:field="*{name}">
+			</div>
+			<div>
+				<label>Description:</label>
+				<input th:field="*{description}">
+			</div>
+			<button type="submit">Create Room</button>
+		</form>
+	</body>
+</html>

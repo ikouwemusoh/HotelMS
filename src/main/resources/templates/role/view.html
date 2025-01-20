@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+	<head>
+		<title>View Users</title>
+	</head>
+	<body>
+		<h1>Hotel Room Views</h1>
+		<a th:href="@{/roles/new}">Create New Role</a>
+		<table border="1">
+			<tr>
+				<th>ID</th>
+				<th>Role Name</th>
+				<th>Description</th>
+				<th>Date Created</th>
+				<th>Actions</th>
+			</tr>
+			<tr th:each="r:${roles}">
+				<td th:text="${r.id}"></td>
+				<td th:text="${r.name}"></td>
+				<td th:text="${r.description}"></td>
+				<td th:text="${r.dateCreated}"></td>
+				<td>
+					<a th:href="@{'/roles/delete/{id}'(id=${r.id})}">delete</a>
+					<a th:href="@{'/roles/edit/{id}'(id=${r.id})}">edit</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

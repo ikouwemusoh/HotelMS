@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+	<head>
+		<title>View Users</title>
+	</head>
+	<body>
+		<h1>Hotel Room Views</h1>
+		<a th:href="@{/rooms/new}">Create New Room</a>
+		<table border="1">
+			<tr>
+				<th>ID</th>
+				<th>Room Name</th>
+				<th>Price</th>
+				<th>Length</th>
+				<th>Width</th>
+				<th>Fan Number</th>
+				<th>Matrass Size</th>
+				<th>TV size</th>
+				<th>Cussion Chair</th>
+				<th>AC Capacity</th>
+				<th>Heater</th>
+				<th>Bath Top</th>
+				<th>Availability</th>
+				<th>Blockage</th>
+				<th>Actions</th>
+			</tr>
+			<tr th:each="r:${rooms}">
+				<td th:text="${r.id}"></td>
+				<td th:text="${r.name}"></td>
+				<td th:text="${r.price}"></td>
+				<td th:text="${r.roomLength}"></td>
+				<td th:text="${r.roomWidth}"></td>
+				<td th:text="${r.fanNumber}"></td>
+				<td th:text="${r.matrassSize}"></td>
+				<td th:text="${r.tvSize}"></td>
+				<td th:text="${r.numberSeaterCussionChair}"></td>
+				<td th:text="${r.acCapacity}"></td>
+				<td th:if="${r.heaterAvailable}">Available</td><td th:if="${!r.heaterAvailable}">Not Available</td>
+				<td th:text="${r.bath}"></td>
+				<td th:if="${r.isOccupied}">Occupied</td><td th:if="${!r.isOccupied}">Vacant</td>
+				<td th:if="${r.isBlocked}">Close</td><td th:if="${!r.isBlocked}">Open</td>
+				<td>
+					<a th:href="@{'/rooms/view/{id}'(id=${r.id})}">details</a>
+					<a th:href="@{'/rooms/delete/{id}'(id=${r.id})}">delete</a>
+					<a th:href="@{'/rooms/edit/{id}'(id=${r.id})}">edit</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
